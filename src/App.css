@@ -153,6 +153,43 @@
   }
 }
 
+.health-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 28px;
+  min-width: 320px;
+  text-align: left;
+
+  h2 {
+    margin: 0 0 14px;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-2);
+  }
+}
+
+.health-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  td {
+    padding: 5px 0;
+  }
+
+  td:first-child {
+    color: var(--text-2);
+    padding-right: 20px;
+    white-space: nowrap;
+  }
+}
+
+.health-loading { color: var(--text-2); margin: 0; }
+.health-error   { color: #e05252; margin: 0; font-size: 14px; }
+.health-up      { color: #4caf50; font-weight: 600; }
+.health-down    { color: #e05252; font-weight: 600; }
+
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
