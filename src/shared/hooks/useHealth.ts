@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchHealth } from '../api/health'
+import { fetchHealth } from '../../infrastructure/api/health'
 
 export function useHealth() {
   return useQuery({

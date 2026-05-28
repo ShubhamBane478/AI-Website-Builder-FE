@@ -1,10 +1,11 @@
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
-import { useHealth } from './hooks/useHealth'
 import './App.css'
+import { useHealth } from './shared/hooks/useHealth'
 
 function App() {
+  return <></>
   const { data, isLoading, isError, error } = useHealth()
 
   return (
