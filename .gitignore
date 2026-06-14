@@ -24,3 +24,8 @@ stitch_nexus_ai_web_builder
 *.njsproj
 *.sln
 *.sw?
+
+
+.env
+.env.development
+.env.production
