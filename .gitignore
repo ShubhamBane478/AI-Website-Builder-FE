@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+stitch_nexus_ai_web_builder
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
