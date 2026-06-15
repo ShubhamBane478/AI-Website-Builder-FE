@@ -9,6 +9,16 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] }),
   ],
+  resolve: {
+    alias: {
+      '@/app':       path.resolve(__dirname, './src/app'),
+      '@/domains':   path.resolve(__dirname, './src/domains'),
+      '@/shared':    path.resolve(__dirname, './src/shared'),
+      '@/templates': path.resolve(__dirname, './src/templates'),
+      '@/infra':     path.resolve(__dirname, './src/infrastructure'),
+      '@/store':     path.resolve(__dirname, './src/store'),
+    },
+  },
   server: {
     port: 3000,
   },

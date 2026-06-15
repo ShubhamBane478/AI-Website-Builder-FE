@@ -5,7 +5,6 @@ import './App.css'
 import { useHealth } from './shared/hooks/useHealth'
 
 function App() {
-  return <></>
   const { data, isLoading, isError, error } = useHealth()
 
   return (
