@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 export default function HomePage() {
   const navigate = useNavigate()
-  // const { data: healthData, isLoading: isHealthLoading, isError: isHealthError } = useHealth()
+  const { data: healthData, isLoading: isHealthLoading, isError: isHealthError } = useHealth()
   const [openFaq, setOpenFaq] = useState<number | null>(0)
 
   const faqs = [
@@ -55,8 +55,8 @@ export default function HomePage() {
       <div className="absolute top-[2200px] right-1/3 w-[400px] sm:w-[700px] h-[400px] sm:h-[700px] bg-primary/5 blur-[135px] rounded-full -z-10 animate-pulse duration-[12s]"></div>
 
       {/* Backend API Observability Indicator */}
-      {/* <div className="flex justify-center mb-md px-gutter">
-        <motion.div 
+      <div className="flex justify-center mb-md px-gutter">
+        <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="inline-flex items-center gap-2.5 px-4.5 py-1.5 rounded-full border border-outline-variant/30 bg-surface-container-low/70 backdrop-blur-md text-label-sm font-label-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)]"
@@ -75,7 +75,7 @@ export default function HomePage() {
             {isHealthLoading ? 'Connecting to backend...' : isHealthError ? 'Backend offline' : `System Live — Environment: ${healthData?.environment}`}
           </span>
         </motion.div>
-      </div> */}
+      </div>
 
       {/* Hero Section */}
       <section className="pb-xl px-gutter max-w-screen-2xl mx-auto text-center relative">
