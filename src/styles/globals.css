@@ -2,11 +2,188 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Light theme defaults */
+  --color-background: #fbfbfe;
+  --color-on-background: #131315;
+  --color-surface: #ffffff;
+  --color-on-surface: #131315;
+  --color-on-surface-variant: #5c5d63;
+  --color-surface-container: #f0eff2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f6f5f8;
+  --color-surface-container-high: #eae8eb;
+  --color-surface-container-highest: #e0dee1;
+  --color-surface-variant: #e1e2ec;
+  --color-surface-bright: #ffffff;
+  --color-surface-dim: #f0eff2;
+  
+  --color-primary: #005ac2;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #d8e2ff;
+  --color-on-primary-container: #001a42;
+  
+  --color-secondary: #9036e2;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #f0dbff;
+  --color-on-secondary-container: #2c0051;
+  
+  --color-tertiary: #00687a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #acedff;
+  --color-on-tertiary-container: #001f26;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+  
+  --color-outline: #757780;
+  --color-outline-variant: #c5c6d0;
+
+  /* Glassmorphism helpers for light mode */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-blur: 20px;
+  
+  --glass-high-bg: rgba(255, 255, 255, 0.85);
+  --glass-high-border: rgba(0, 0, 0, 0.12);
+  --glass-high-blur: 40px;
+}
+
+.dark {
+  /* Dark theme overrides (matching reference code.html) */
+  --color-background: #131315;
+  --color-on-background: #e5e1e4;
+  --color-surface: #131315;
+  --color-on-surface: #e5e1e4;
+  --color-on-surface-variant: #c2c6d6;
+  --color-surface-container: #201f22;
+  --color-surface-container-lowest: #0e0e10;
+  --color-surface-container-low: #1c1b1d;
+  --color-surface-container-high: #2a2a2c;
+  --color-surface-container-highest: #353437;
+  --color-surface-variant: #353437;
+  --color-surface-bright: #39393b;
+  --color-surface-dim: #131315;
+
+  --color-primary: #adc6ff;
+  --color-on-primary: #002e6a;
+  --color-primary-container: #4d8eff;
+  --color-on-primary-container: #00285d;
+
+  --color-secondary: #ddb7ff;
+  --color-on-secondary: #490080;
+  --color-secondary-container: #6f00be;
+  --color-on-secondary-container: #d6a9ff;
+
+  --color-tertiary: #4cd7f6;
+  --color-on-tertiary: #003640;
+  --color-tertiary-container: #009eb9;
+  --color-on-tertiary-container: #002f38;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-outline: #8c909f;
+  --color-outline-variant: #424754;
+
+  /* Glassmorphism helpers for dark mode */
+  --glass-bg: rgba(19, 19, 21, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: 20px;
+  
+  --glass-high-bg: rgba(19, 19, 21, 0.8);
+  --glass-high-border: rgba(255, 255, 255, 0.1);
+  --glass-high-blur: 40px;
+}
+
 body {
   margin: 0;
   font-family: Inter, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   box-sizing: border-box;
+}
+
+/* Material Icons setting */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+/* Glassmorphism styles */
+.surface_glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.surface_glass_high {
+  background: var(--glass-high-bg);
+  backdrop-filter: blur(var(--glass-high-blur));
+  border: 1px solid var(--glass-high-border);
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: inherit;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(173, 198, 255, 0.3) 0%, rgba(76, 215, 246, 0.05) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* Custom scroll-x animation */
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-x {
+  display: flex;
+  width: max-content;
+  animation: scroll-x 40s linear infinite;
+}
+
+.animate-scroll-x:hover {
+  animation-play-state: paused;
 }

@@ -11,7 +11,13 @@ const RegisterPage = loadable(
    () => import('@/domains/auth/pages/register-page')
 )
 
+const ForgotPasswordPage = loadable(
+   () => import('@/domains/auth/pages/forgot-password-page')
+)
 
+const ResetPasswordPage = loadable(
+   () => import('@/domains/auth/pages/reset-password-page')
+)
 
 export const authRoutes: RouteObject = {
    element: <PublicRoute />,
@@ -26,6 +32,14 @@ export const authRoutes: RouteObject = {
             {
                path: '/register',
                element: <RegisterPage />,
+            },
+            {
+               path: '/forgot-password',
+               element: <ForgotPasswordPage />,
+            },
+            {
+               path: '/reset-password',
+               element: <ResetPasswordPage />,
             },
          ],
       },
